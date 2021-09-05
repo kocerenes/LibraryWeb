@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EntityLayer.Concrete
+namespace EntityLayer.Model
 {
     using System;
     using System.Collections.Generic;

@@ -7,30 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EntityLayer.Concrete
+namespace EntityLayer.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Transactions
+    public partial class Categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Transactions()
+        public Categories()
         {
-            this.Cash_fines = new HashSet<Cash_fines>();
+            this.Books = new HashSet<Books>();
         }
     
-        public int ID { get; set; }
-        public Nullable<int> BOOK { get; set; }
-        public Nullable<int> MEMBER { get; set; }
-        public Nullable<byte> PERSONNEL { get; set; }
-        public Nullable<System.DateTime> PURCHASEDATE { get; set; }
-        public Nullable<System.DateTime> RETURNDATE { get; set; }
+        public byte ID { get; set; }
+        public string NAME { get; set; }
     
-        public virtual Books Books { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cash_fines> Cash_fines { get; set; }
-        public virtual Members Members { get; set; }
-        public virtual Personnels Personnels { get; set; }
+        public virtual ICollection<Books> Books { get; set; }
     }
 }

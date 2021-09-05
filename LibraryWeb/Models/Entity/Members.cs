@@ -7,22 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EntityLayer.Concrete
+namespace LibraryWeb.Models.Entity
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Personnels
+    public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Personnels()
+        public Members()
         {
+            this.Cash_fines = new HashSet<Cash_fines>();
             this.Transactions = new HashSet<Transactions>();
         }
     
-        public byte ID { get; set; }
-        public string NAMESURNAME { get; set; }
+        public int ID { get; set; }
+        public string NAME { get; set; }
+        public string SURNAME { get; set; }
+        public string MAIL { get; set; }
+        public string USERNAME { get; set; }
+        public string PASSWORD { get; set; }
+        public string PHOTO { get; set; }
+        public string PHONENUMBER { get; set; }
+        public string SCHOOL { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cash_fines> Cash_fines { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transactions> Transactions { get; set; }
     }

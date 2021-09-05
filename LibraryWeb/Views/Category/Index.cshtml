@@ -1,15 +1,32 @@
-﻿
+﻿@using LibraryWeb.Models.Entity
+@model List<Categories>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
 <h2>
-    Sidebar with Icons
+    Kategoriler
 </h2>
-This side navigation is of full height (100%) and always shown.
 
-Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-
-Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
-
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>KATEGORİ ADI</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.ID</td>
+                <td>@category.NAME</td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Category/AddCategory/" class="btn btn-primary">Kategori Ekle</a>

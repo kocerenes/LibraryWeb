@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EntityLayer.Concrete
+namespace LibraryWeb.Models.Entity
 {
     using System;
     using System.Data.Entity;

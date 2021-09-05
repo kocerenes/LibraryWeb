@@ -7,15 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EntityLayer.Concrete
+namespace EntityLayer.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Case
+    public partial class sysdiagrams
     {
-        public int ID { get; set; }
-        public string MONTH { get; set; }
-        public Nullable<decimal> AMOUNT { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
