@@ -13,8 +13,10 @@ namespace LibraryWeb.Controllers
         LibraryEntities libraryEntities = new LibraryEntities();
         public ActionResult Index()
         {
-            var values = libraryEntities.Categories
-            return View();
+            var values = libraryEntities.Categories.ToList();
+            return View(values);
+
+
         }
     }
 }
