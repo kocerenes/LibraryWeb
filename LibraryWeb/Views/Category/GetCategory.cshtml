@@ -8,7 +8,7 @@
 @using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
 {
     <br /><br />
-    <div class="form-group">
+    <div class="form-group" style="margin-right:50px;">
         @Html.LabelFor(c => c.ID)
         @Html.TextBoxFor(c => c.ID, new {@class = "form-control"})
         <br />
