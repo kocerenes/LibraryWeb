@@ -23,10 +23,11 @@
             <tr>
                 <td>@category.ID</td>
                 <td>@category.NAME</td>
-                <td><a href="#" class="btn btn-danger">Sil</a></td>
-                <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Category/DeleteCategory/@category.ID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Category/GetCategory/@category.ID" class="btn btn-success">Güncelle</a></td>
             </tr>
         }
     </tbody>
 </table>
 <a href="/Category/AddCategory/" class="btn btn-primary">Kategori Ekle</a>
+<br /><br />
