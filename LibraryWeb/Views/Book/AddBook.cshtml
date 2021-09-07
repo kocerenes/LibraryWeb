@@ -1,0 +1,41 @@
+﻿@model LibraryWeb.Models.Entity.Books 
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" style="margin-right:50px;" method="post">
+    <br />
+    <div>
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(b => b.NAME, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Kategori</label>
+        @Html.DropDownListFor(b => b.Categories.ID,(List<SelectListItem>)ViewBag.fetchCategory, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Yazar</label>
+        @Html.DropDownListFor(b => b.Authors.ID,(List<SelectListItem>)ViewBag.fetchAuthor,new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Basım Yılı</label>
+        @Html.TextBoxFor(b => b.YEAROFPRINTING, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Yayınevi</label>
+        @Html.TextBoxFor(b => b.PUBLISHINGHOUSE, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <label>Sayfa</label>
+        @Html.TextBoxFor(b => b.PAGE, new { @class = "form-control" })
+    </div>
+    <br />
+    <button class="btn btn-info">Kitap Ekle</button>
+</form>
+
