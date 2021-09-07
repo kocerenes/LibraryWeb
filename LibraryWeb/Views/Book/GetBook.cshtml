@@ -1,0 +1,42 @@
+﻿
+@model LibraryWeb.Models.Entity.Books
+
+@{
+    ViewBag.Title = "GetBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
+{
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px; margin-top: 30px; ">
+        @Html.LabelFor(b => b.ID)
+        @Html.TextBoxFor(a => a.ID, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        @Html.LabelFor(b => b.NAME)
+        @Html.TextBoxFor(b => b.NAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        @Html.LabelFor(b => b.CATEGORY)
+        @Html.DropDownListFor(b => b.Categories.ID, (List<SelectListItem>)ViewBag.fetchCategory, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        @Html.LabelFor(b => b.AUTHOR)
+        @Html.DropDownListFor(b => b.Authors.ID, (List<SelectListItem>)ViewBag.fetchAuthor, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px; margin-top: 15px; ">
+        @Html.LabelFor(b => b.YEAROFPRINTING)
+        @Html.TextBoxFor(a => a.YEAROFPRINTING, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        @Html.LabelFor(b => b.PUBLISHINGHOUSE)
+        @Html.TextBoxFor(b => b.PUBLISHINGHOUSE, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        @Html.LabelFor(b => b.PAGE)
+        @Html.TextBoxFor(b => b.PAGE, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+

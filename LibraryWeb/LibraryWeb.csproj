@@ -242,6 +242,7 @@
     <Content Include="Views\Author\GetAuthor.cshtml" />
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
+    <Content Include="Views\Book\GetBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
