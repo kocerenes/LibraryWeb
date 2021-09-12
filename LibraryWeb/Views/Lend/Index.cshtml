@@ -1,0 +1,39 @@
+﻿@using LibraryWeb.Models.Entity
+@model List<Transactions>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<br /><h2>Ödünç Verilen Kitaplar</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>İşlem ID</th>
+            <th>Kitap Adı</th>
+            <th>Üye</th>
+            <th>Personel</th>
+            <th>Kitabın Verildiği Tarih</th>
+            <th>Kitabın İade Edilmesi Gereken Tarih</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.ID</td>
+                <td>@transaction.Books.NAME</td>
+                <td>@transaction.Members.NAME @transaction.Members.SURNAME</td>
+                <td>@transaction.Personnels.NAMESURNAME</td>
+                <td>@transaction.PURCHASEDATE</td>
+                <td>@transaction.RETURNDATE</td>
+                <td>@Html.ActionLink("Return The Book", "ReturnTheBook", new { id = transaction.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Kitap iade edilsin mi?')" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Book/AddBook/" class="btn btn-primary">Yeni Kitap EKle</a>
+<br />
+<br />

@@ -1,0 +1,36 @@
+﻿@model LibraryWeb.Models.Entity.Transactions
+@{
+    ViewBag.Title = "Lend";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" style="margin-right:50px;" method="post">
+    <br />
+    <div>
+        <label>Kitap ID</label>
+        @Html.TextBoxFor(m => m.BOOK, new { @class = "form-control", })
+    </div>
+    <br />
+    <div>
+        <label>Üye ID</label>
+        @Html.TextBoxFor(m => m.MEMBER, new { @class = "form-control", })
+    </div>
+    <br />
+    <div>
+        <label>Personel ID</label>
+        @Html.TextBoxFor(m => m.PERSONNEL, new { @class = "form-control", })
+    </div>
+    <br />
+    <div>
+        <label>Veriş Tarihi</label>
+        <input type="text" class="form-control" name="PURCHASEDATE" value="@DateTime.Now.AddDays(0)" />
+    </div>
+    <br />
+    <div>
+        <label>İade Tarihi</label>
+        <input type="text" class="form-control" name="RETURNDATE" value="@DateTime.Now.AddDays(10)" />
+    </div>
+    <br />
+    <button class="btn" style="background-color:coral; color:white; padding-left:20px;padding-right:20px;">Onayla</button>
+</form>
+

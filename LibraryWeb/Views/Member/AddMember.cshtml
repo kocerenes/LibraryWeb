@@ -1,0 +1,48 @@
+﻿@model LibraryWeb.Models.Entity.Members
+@{
+    ViewBag.Title = "AddMember";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" style="margin-right:50px;" method="post">
+    <br />
+    <div>
+        <label>Adınız</label>
+        @Html.TextBoxFor(m => m.NAME, new { @class = "form-control", })
+        @Html.ValidationMessageFor(m => m.NAME, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <label>Soyadınız</label>
+        @Html.TextBoxFor(m => m.SURNAME, new { @class = "form-control", })
+        @Html.ValidationMessageFor(m => m.SURNAME, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <label>Mail</label>
+        @Html.TextBoxFor(m => m.MAIL, new { @class = "form-control", })
+    </div>
+    <br />
+    <div>
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(m => m.USERNAME, new { @class = "form-control", })
+    </div>
+    <br />
+    <div>
+        <label>Şifre</label>
+        @Html.TextBoxFor(m => m.PASSWORD, new { @class = "form-control", })
+        @Html.ValidationMessageFor(m => m.PASSWORD, "", new { @style = "color:red" })
+    </div>
+    <br />
+    <div>
+        <label>Telefon numarası</label>
+        @Html.TextBoxFor(m => m.PHONENUMBER, new { @class = "form-control", })
+    </div>
+    <br />
+    <div>
+        <label>Okul</label>
+        @Html.TextBoxFor(m => m.SCHOOL, new { @class = "form-control", })
+    </div>
+    <br />
+    <button class="btn btn-info">Üye Ekle</button>
+</form>

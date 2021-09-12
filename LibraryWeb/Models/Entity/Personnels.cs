@@ -11,7 +11,8 @@ namespace LibraryWeb.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Personnels
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,7 @@ namespace LibraryWeb.Models.Entity
         }
     
         public byte ID { get; set; }
+        [Required(ErrorMessage ="Personel adý boþ geçilemez.")]
         public string NAMESURNAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
