@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authors">
           <Key>
             <PropertyRef Name="ID" />
@@ -94,6 +94,8 @@
           <Property Name="PERSONNEL" Type="tinyint" />
           <Property Name="PURCHASEDATE" Type="smalldatetime" />
           <Property Name="RETURNDATE" Type="smalldatetime" />
+          <Property Name="HANDEDDATE" Type="smalldatetime" />
+          <Property Name="PROCCESS_CASE" Type="bit" />
         </EntityType>
         <Association Name="FK_Books_Authors">
           <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
@@ -218,8 +220,7 @@
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -244,7 +245,7 @@
           <Property Name="YEAROFPRINTING" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="PUBLISHINGHOUSE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PAGE" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="CASE_" Type="Boolean" />
+          <Property Name="CASE_" Type="Boolean" DefaultValue="true" />
           <NavigationProperty Name="Authors" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Books_Categories" FromRole="Books" ToRole="Categories" />
           <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
@@ -326,6 +327,8 @@
           <NavigationProperty Name="Cash_fines" Relationship="Self.FK_Cash_fines_Transactions" FromRole="Transactions" ToRole="Cash_fines" />
           <NavigationProperty Name="Members" Relationship="Self.FK_Transactions_Members" FromRole="Transactions" ToRole="Members" />
           <NavigationProperty Name="Personnels" Relationship="Self.FK_Transactions_Personnels" FromRole="Transactions" ToRole="Personnels" />
+          <Property Name="PROCCESS_CASE" Type="Boolean" />
+          <Property Name="HANDEDDATE" Type="DateTime" Precision="0" />
         </EntityType>
         <Association Name="FK_Books_Authors">
           <End Role="Authors" Type="Self.Authors" Multiplicity="0..1" />
@@ -546,6 +549,8 @@
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="LibraryModel.Transactions">
               <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="HANDEDDATE" ColumnName="HANDEDDATE" />
+                <ScalarProperty Name="PROCCESS_CASE" ColumnName="PROCCESS_CASE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BOOK" ColumnName="BOOK" />
                 <ScalarProperty Name="MEMBER" ColumnName="MEMBER" />

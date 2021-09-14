@@ -139,6 +139,7 @@
     <Compile Include="Controllers\LendController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
+    <Compile Include="Controllers\ProcessingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -273,10 +274,13 @@
     <Content Include="Views\Member\GetMember.cshtml" />
     <Content Include="Views\Lend\Lend.cshtml" />
     <Content Include="Views\Lend\Index.cshtml" />
+    <Content Include="Views\Lend\ReturnTheBook.cshtml" />
+    <Content Include="Views\Processing\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Proccess\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

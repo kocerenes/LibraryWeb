@@ -26,6 +26,8 @@ namespace LibraryWeb.Models.Entity
         public Nullable<byte> PERSONNEL { get; set; }
         public Nullable<System.DateTime> PURCHASEDATE { get; set; }
         public Nullable<System.DateTime> RETURNDATE { get; set; }
+        public Nullable<bool> PROCCESS_CASE { get; set; }
+        public Nullable<System.DateTime> HANDEDDATE { get; set; }
     
         public virtual Books Books { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

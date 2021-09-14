@@ -14,7 +14,7 @@ namespace LibraryWeb.Controllers
         // GET: Lend
         public ActionResult Index()
         {
-            var transactions = libraryEntities.Transactions.ToList();
+            var transactions = libraryEntities.Transactions.Where(x => x.PROCCESS_CASE == false).ToList();
             return View(transactions);
         }
 
@@ -29,6 +29,23 @@ namespace LibraryWeb.Controllers
             libraryEntities.Transactions.Add(transaction);
             libraryEntities.SaveChanges();
             return View();
+        }
+
+        //iade etme
+        public ActionResult ReturnTheBook(int id)
+        {
+            var returnBook = libraryEntities.Transactions.Find(id);
+            return View("ReturnTheBook", returnBook);
+        }
+
+        //ödünç işlemini güncelleme
+        public ActionResult LendUpdate(Transactions transaction)
+        {
+            var fetchTransaction = libraryEntities.Transactions.Find(transaction.ID);
+            fetchTransaction.HANDEDDATE = transaction.HANDEDDATE;
+            fetchTransaction.PROCCESS_CASE = true;
+            libraryEntities.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

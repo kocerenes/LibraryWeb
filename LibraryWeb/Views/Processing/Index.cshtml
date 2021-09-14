@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<br /><h2>Ödünç Verilen Kitaplar</h2>
+<br />
+<h2>İade Edilen Kitaplar</h2>
 
 <table class="table table-hover">
     <thead>
@@ -15,7 +16,7 @@
             <th>Üye</th>
             <th>Personel</th>
             <th>Kitabın Verildiği Tarih</th>
-            <th>Kitabın İade Edilmesi Gereken Tarih</th>
+            <th>İade Edilen Tarih</th>
             <th></th>
         </tr>
     </thead>
@@ -28,11 +29,12 @@
                 <td>@transaction.Members.NAME</td>
                 <td>@transaction.Personnels.NAMESURNAME</td>
                 <td>@transaction.PURCHASEDATE</td>
-                <td>@transaction.RETURNDATE</td>
-                <td><a href="/Lend/ReturnTheBook/@transaction.ID" class="btn btn-danger">İade Et</a></td>
+                <td>@transaction.HANDEDDATE</td>
+                <td><a href="/Lend/ReturnTheBook/@transaction.ID" class="btn btn-default" style="background-color:#21dd19">Detay</a></td>
             </tr>
         }
     </tbody>
 </table>
 <br />
 <br />
+

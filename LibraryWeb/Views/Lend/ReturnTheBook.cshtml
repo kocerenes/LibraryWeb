@@ -1,0 +1,40 @@
+﻿@model LibraryWeb.Models.Entity.Transactions
+@{
+    ViewBag.Title = "ReturnTheBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("LendUpdate", "Lend", FormMethod.Post))
+{
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px; margin-top: 30px; ">
+        @Html.HiddenFor(p => p.ID, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(b => b.Books.NAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        <label>Üye Adı</label>
+        @Html.TextBoxFor(b => b.Members.NAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        <label>Personel</label>
+        @Html.TextBoxFor(b => b.Personnels.NAMESURNAME, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        <label>Alış Tarihi</label>
+        @Html.TextBoxFor(b => b.PURCHASEDATE, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        <label>Son İade Tarihi</label>
+        @Html.TextBoxFor(b => b.RETURNDATE, new { @class = "form-control" })
+    </div>
+    <div class="form-group" style="margin-right: 50px; margin-bottom: 15px;">
+        <label>Getirilen Tarih</label>
+        <input type="text" class="form-control" name="HANDEDDATE" value="@DateTime.Now.ToString()" />
+    </div>
+    <button class="btn btn-warning">Kitabı Geri Al</button>
+}
+
+
+

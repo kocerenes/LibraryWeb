@@ -11,8 +11,7 @@ namespace LibraryWeb.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Members
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,16 +22,10 @@ namespace LibraryWeb.Models.Entity
         }
     
         public int ID { get; set; }
-        [Required(ErrorMessage ="Adýnýzý boþ býrakamazsýnýz!")]
-        [StringLength(30,ErrorMessage ="30 karakterden fazla giremezsiniz!")]
         public string NAME { get; set; }
-        [Required(ErrorMessage = "Soyadýnýzý boþ býrakamazsýnýz!")]
-        [StringLength(25, ErrorMessage = "25 karakterden fazla giremezsiniz!")]
         public string SURNAME { get; set; }
         public string MAIL { get; set; }
         public string USERNAME { get; set; }
-        [Required(ErrorMessage = "Þifrenizi boþ býrakamazsýnýz!")]
-        [StringLength(20, ErrorMessage = "Þifreniz 20 karakterden uzun olamaz!")]
         public string PASSWORD { get; set; }
         public string PHOTO { get; set; }
         public string PHONENUMBER { get; set; }

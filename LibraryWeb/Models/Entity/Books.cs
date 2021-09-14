@@ -17,6 +17,7 @@ namespace LibraryWeb.Models.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Books()
         {
+            this.CASE_ = true;
             this.Transactions = new HashSet<Transactions>();
         }
     
