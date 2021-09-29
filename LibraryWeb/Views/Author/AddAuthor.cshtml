@@ -9,11 +9,13 @@
     <div>
         <label>Yazar Adı</label>
         @Html.TextBoxFor(a => a.NAME, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.NAME)
     </div>
     <br />
     <div>
         <label>Yazar Soyadı</label>
         @Html.TextBoxFor(a => a.SURNAME, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.SURNAME)
     </div>
     <br />
     <div>

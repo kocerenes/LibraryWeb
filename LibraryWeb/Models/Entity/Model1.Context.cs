@@ -12,6 +12,8 @@ namespace LibraryWeb.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class LibraryEntities : DbContext
     {
@@ -34,5 +36,12 @@ namespace LibraryWeb.Models.Entity
         public virtual DbSet<Personnels> Personnels { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Transactions> Transactions { get; set; }
+        public virtual DbSet<AboutUs> AboutUs { get; set; }
+        public virtual DbSet<Communicates> Communicates { get; set; }
+    
+        public virtual ObjectResult<string> MostWrittenAuthor()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("MostWrittenAuthor");
+        }
     }
 }

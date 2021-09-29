@@ -29,6 +29,7 @@ namespace LibraryWeb.Models.Entity
         public string PUBLISHINGHOUSE { get; set; }
         public string PAGE { get; set; }
         public Nullable<bool> CASE_ { get; set; }
+        public string IMAGE { get; set; }
     
         public virtual Authors Authors { get; set; }
         public virtual Categories Categories { get; set; }

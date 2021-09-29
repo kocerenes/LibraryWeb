@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ABOUT" Type="varchar(max)" />
+        </EntityType>
         <EntityType Name="Authors">
           <Key>
             <PropertyRef Name="ID" />
@@ -26,6 +33,7 @@
           <Property Name="PUBLISHINGHOUSE" Type="varchar" MaxLength="50" />
           <Property Name="PAGE" Type="varchar" MaxLength="4" />
           <Property Name="CASE_" Type="bit" />
+          <Property Name="IMAGE" Type="varchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Case">
           <Key>
@@ -52,6 +60,16 @@
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Communicates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="50" />
+          <Property Name="SUBJECT" Type="varchar" MaxLength="75" />
+          <Property Name="MESSAGE" Type="varchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="Members">
           <Key>
@@ -181,12 +199,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="MostWrittenAuthor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="LibraryModelStoreContainer">
+          <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Case" EntityType="Self.Case" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cash_fines" EntityType="Self.Cash_fines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Communicates" EntityType="Self.Communicates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personnels" EntityType="Self.Personnels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -249,6 +270,7 @@
           <NavigationProperty Name="Authors" Relationship="Self.FK_Books_Authors" FromRole="Books" ToRole="Authors" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Books_Categories" FromRole="Books" ToRole="Categories" />
           <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Books" FromRole="Books" ToRole="Transactions" />
+          <Property Name="IMAGE" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Case">
           <Key>
@@ -452,7 +474,27 @@
             <End Role="Personnels" EntitySet="Personnels" />
             <End Role="Transactions" EntitySet="Transactions" />
           </AssociationSet>
+          <EntitySet Name="AboutUs" EntityType="LibraryModel.AboutUs" />
+          <EntitySet Name="Communicates" EntityType="LibraryModel.Communicates" />
+          <FunctionImport Name="MostWrittenAuthor" ReturnType="Collection(String)" />
         </EntityContainer>
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ABOUT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Communicates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUBJECT" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="MESSAGE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -472,6 +514,7 @@
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="LibraryModel.Books">
               <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="IMAGE" ColumnName="IMAGE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
                 <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
@@ -560,6 +603,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AboutUs">
+            <EntityTypeMapping TypeName="LibraryModel.AboutUs">
+              <MappingFragment StoreEntitySet="AboutUs">
+                <ScalarProperty Name="ABOUT" ColumnName="ABOUT" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Communicates">
+            <EntityTypeMapping TypeName="LibraryModel.Communicates">
+              <MappingFragment StoreEntitySet="Communicates">
+                <ScalarProperty Name="MESSAGE" ColumnName="MESSAGE" />
+                <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MostWrittenAuthor" FunctionName="LibraryModel.Store.MostWrittenAuthor" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

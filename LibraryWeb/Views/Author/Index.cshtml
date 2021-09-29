@@ -9,7 +9,7 @@
 
 <table class="table table-hover">
     <thead>
-        <tr>
+        <tr style="background-color:rgb(252,178,22); text-align: center;">
             <td>ID</td>
             <td>İSİM</td>
             <td>SOYAD</td>
@@ -20,7 +20,7 @@
     </thead>
     <tbody>
         @foreach(var author in Model) { 
-            <tr>
+            <tr style=" text-align: center;">
                 <td>@author.ID</td>
                 <td>@author.NAME</td>
                 <td>@author.SURNAME</td>

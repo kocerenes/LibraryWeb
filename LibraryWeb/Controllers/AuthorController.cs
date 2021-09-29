@@ -28,6 +28,10 @@ namespace LibraryWeb.Controllers
         [HttpPost]
         public ActionResult AddAuthor(Authors author)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             libraryWeb.Authors.Add(author);
             libraryWeb.SaveChanges();
             return RedirectToAction("Index");

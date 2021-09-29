@@ -32,9 +32,13 @@ namespace LibraryWeb.Controllers
         }
 
         //iade etme
-        public ActionResult ReturnTheBook(int id)
+        public ActionResult ReturnTheBook(Transactions transaction)
         {
-            var returnBook = libraryEntities.Transactions.Find(id);
+            var returnBook = libraryEntities.Transactions.Find(transaction.ID);
+            DateTime fetchReturnDateTime = DateTime.Parse(returnBook.RETURNDATE.ToString());
+            DateTime fetchHandedDateTime = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan elapsedTime = fetchHandedDateTime - fetchReturnDateTime;
+            ViewBag.elapsedtime = Convert.ToInt32(elapsedTime.TotalDays)+1;
             return View("ReturnTheBook", returnBook);
         }
 
