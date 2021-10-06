@@ -85,6 +85,17 @@
           <Property Name="PHONENUMBER" Type="varchar" MaxLength="20" />
           <Property Name="SCHOOL" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SENDER" Type="varchar" MaxLength="50" />
+          <Property Name="RECEIVER" Type="varchar" MaxLength="50" />
+          <Property Name="SUBJECT" Type="varchar" MaxLength="50" />
+          <Property Name="CONTENT_" Type="varchar" MaxLength="500" />
+          <Property Name="DATE_" Type="smalldatetime" />
+        </EntityType>
         <EntityType Name="Personnels">
           <Key>
             <PropertyRef Name="ID" />
@@ -209,6 +220,7 @@
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Communicates" EntityType="Self.Communicates" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messages" EntityType="Self.Messages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personnels" EntityType="Self.Personnels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
@@ -477,6 +489,7 @@
           <EntitySet Name="AboutUs" EntityType="LibraryModel.AboutUs" />
           <EntitySet Name="Communicates" EntityType="LibraryModel.Communicates" />
           <FunctionImport Name="MostWrittenAuthor" ReturnType="Collection(String)" />
+          <EntitySet Name="Messages" EntityType="LibraryModel.Messages" />
         </EntityContainer>
         <EntityType Name="AboutUs">
           <Key>
@@ -494,6 +507,17 @@
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SUBJECT" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
           <Property Name="MESSAGE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Messages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RECEIVER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUBJECT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTENT_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -623,6 +647,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="MostWrittenAuthor" FunctionName="LibraryModel.Store.MostWrittenAuthor" />
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="LibraryModel.Messages">
+              <MappingFragment StoreEntitySet="Messages">
+                <ScalarProperty Name="DATE_" ColumnName="DATE_" />
+                <ScalarProperty Name="CONTENT_" ColumnName="CONTENT_" />
+                <ScalarProperty Name="SUBJECT" ColumnName="SUBJECT" />
+                <ScalarProperty Name="RECEIVER" ColumnName="RECEIVER" />
+                <ScalarProperty Name="SENDER" ColumnName="SENDER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

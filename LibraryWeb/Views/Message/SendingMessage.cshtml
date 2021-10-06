@@ -1,0 +1,28 @@
+﻿@using LibraryWeb.Models.Entity
+@model List<Messages>
+
+@{
+    ViewBag.Title = "SendingMessage";
+    Layout = "~/Views/Shared/StudentPageLayout.cshtml";
+}
+
+<h2>Gönderilen Mesajlar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Alıcı</th>
+        <th>Konu</th>
+        <th>Mesaj</th>
+        <th>İşlem tarihi</th>
+    </tr>
+    @foreach (var message in Model)
+    {
+        <tr>
+            <td>@message.RECEIVER</td>
+            <td>@message.SUBJECT</td>
+            <td>@message.CONTENT_</td>
+            <td>@message.DATE_</td>
+        </tr>
+    }
+</table>
+

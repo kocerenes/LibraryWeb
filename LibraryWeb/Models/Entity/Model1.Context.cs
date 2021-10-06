@@ -38,6 +38,7 @@ namespace LibraryWeb.Models.Entity
         public virtual DbSet<Transactions> Transactions { get; set; }
         public virtual DbSet<AboutUs> AboutUs { get; set; }
         public virtual DbSet<Communicates> Communicates { get; set; }
+        public virtual DbSet<Messages> Messages { get; set; }
     
         public virtual ObjectResult<string> MostWrittenAuthor()
         {

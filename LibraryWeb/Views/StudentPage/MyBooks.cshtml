@@ -1,0 +1,34 @@
+﻿@using LibraryWeb.Models.Entity
+@model List<Transactions>
+
+@{
+    ViewBag.Title = "MyBooks";
+    Layout = "~/Views/Shared/StudentPageLayout.cshtml";
+}
+
+<br />
+<h2>Geçmiş Kitaplarım</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Personel</th>
+            <th>Kitabın Verildiği Tarih</th>
+            <th>İade Edilen Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transaction in Model)
+        {
+            <tr>
+                <td>@transaction.Books.NAME</td>
+                <td>@transaction.Personnels.NAMESURNAME</td>
+                <td>@transaction.PURCHASEDATE</td>
+                <td>@transaction.HANDEDDATE</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />

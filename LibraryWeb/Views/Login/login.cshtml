@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="en">
 
 <head>
-    <title>Material Login Form a Responsive Widget Template :: w3layouts</title>
+    <title>Giriş</title>
     <!-- meta tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,20 +39,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <h1>Giriş Yapma Paneline Hoşgeldiniz</h1>
     <div class=" w3l-login-form">
         <h2>Buradan Giriş Yapınız</h2>
-        <form action="#" method="POST">
-
+        @using (Html.BeginForm("login", "Login", FormMethod.Post)) { 
             <div class=" w3l-form-group">
-                <label>Kullanıcı Adı</label>
+                <label>e-Mail adresiniz</label>
                 <div class="group">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" placeholder="kullanıcı adı" required="required" />
+                    <input type="text" class="form-control" placeholder="mail" required="required" name="MAIL" />
                 </div>
             </div>
             <div class=" w3l-form-group">
                 <label>Şifre</label>
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" placeholder="şifre" required="required" />
+                    <input type="password" class="form-control" placeholder="şifre" required="required" name="PASSWORD" />
                 </div>
             </div>
             <div class="forgot">
@@ -60,7 +59,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <p><input type="checkbox">Beni hatırla</p>
             </div>
             <button type="submit">Giriş</button>
-        </form>
+        }
+
         <p class=" w3l-register-p">Hesabın yok mu?<a href="/Register/Index/" class="register"> Kayıt ol</a></p>
     </div>
     <footer>

@@ -139,11 +139,13 @@
     <Compile Include="Controllers\LendController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PersonnelController.cs" />
     <Compile Include="Controllers\ProcessingController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\ShowcaseController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
+    <Compile Include="Controllers\StudentPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -170,6 +172,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Members.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\Messages.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\Model1.Context.cs">
@@ -322,6 +327,10 @@
     <Content Include="Statistic_page\resimler\book5.jpg" />
     <Content Include="Statistic_page\resimler\img1.jpg" />
     <Content Include="Statistic_page\w3layouts-License.txt" />
+    <Content Include="student_sidebar_template\assets\favicon.ico" />
+    <Content Include="student_sidebar_template\css\styles.css" />
+    <Content Include="student_sidebar_template\index.html" />
+    <Content Include="student_sidebar_template\js\scripts.js" />
     <Content Include="weather_page\css\style.css" />
     <Content Include="weather_page\images\bg.jpg" />
     <Content Include="weather_page\images\img1.jpg" />
@@ -544,8 +553,14 @@
     <Content Include="register\fonts\FontAwesome.otf" />
     <Content Include="register\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="register\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\login.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
+    <Content Include="Views\Shared\StudentPageLayout.cshtml" />
+    <Content Include="Views\StudentPage\Index.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\NewMessage.cshtml" />
+    <Content Include="Views\Message\SendingMessage.cshtml" />
+    <Content Include="Views\StudentPage\MyBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

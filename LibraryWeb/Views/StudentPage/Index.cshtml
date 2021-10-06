@@ -1,0 +1,68 @@
+﻿@model LibraryWeb.Models.Entity.Members
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/StudentPageLayout.cshtml";
+}
+
+<h2>Profil Bilgileriniz</h2>
+@using (Html.BeginForm("UpdateUserInfo", "StudentPage", FormMethod.Post))
+{
+
+    <table class="table table-striped table-warning">
+        <tr>
+            <td>
+                e-Mail Adresi : &emsp; @HttpContext.Current.User.Identity.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*Öğrenci ID : &emsp;@TempData["id"].ToString()*@
+                @Html.LabelFor(m => m.ID)
+                @Html.TextBoxFor(m => m.ID, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*Ad : &emsp; @TempData["name"].ToString()*@
+                @Html.LabelFor(m => m.NAME)
+                @Html.TextBoxFor(m => m.NAME, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*Soyad : &emsp; @TempData["surname"].ToString()*@
+                @Html.LabelFor(m => m.SURNAME)
+                @Html.TextBoxFor(m => m.SURNAME, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*Kullanıcı adı : &emsp; @TempData["username"].ToString()*@
+                @Html.LabelFor(m => m.USERNAME)
+                @Html.TextBoxFor(m => m.USERNAME, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*Şifre : &emsp; @TempData["password"].ToString()*@
+                @Html.LabelFor(m => m.PASSWORD)
+                @Html.TextBoxFor(m => m.PASSWORD, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*Şifre : &emsp; @TempData["password"].ToString()*@
+                @Html.LabelFor(m => m.PHOTO)
+                @Html.TextBoxFor(m => m.PHOTO, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*Okul : &emsp; @TempData["school"].ToString()*@
+                @Html.LabelFor(m => m.SCHOOL)
+                @Html.TextBoxFor(m => m.SCHOOL, new { @class = "form-control" })
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-warning" style="margin-bottom:20px;">düzenle</button>
+}
